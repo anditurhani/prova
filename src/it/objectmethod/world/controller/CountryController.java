@@ -27,7 +27,7 @@ public class CountryController {
 	}
 	
 	@GetMapping("/countries")
-	public String countrytList(@RequestParam(name="continent") String continent, ModelMap model, HttpSession session) {
+	public String countrytList(@RequestParam(name="continent", required = false) String continent, ModelMap model, HttpSession session) {
 		if (continent != null) {
 			session.setAttribute("continent", continent);
 		} else {
