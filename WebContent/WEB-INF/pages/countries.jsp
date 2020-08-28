@@ -15,7 +15,7 @@
 		</c:forEach>
 	</ul>
 	<div style="text-align: center">
-		<a href="http://localhost:8080/world_list/">indietro</a>
+		<a href="http://localhost:8080/world_list/continents">indietro</a>
 	</div>
 </body>
 </html>
