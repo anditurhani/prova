@@ -63,9 +63,7 @@ public class CityController {
 		}
 
 		continent = countryDao.getContinent(countryCode);
-		
 	    session.setAttribute("continent", continent);
-	    
 		model.addAttribute("message", message);
 		model.addAttribute("countrycode", countryCode);
 
