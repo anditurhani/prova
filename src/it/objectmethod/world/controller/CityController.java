@@ -23,12 +23,9 @@ public class CityController {
 	private ICountryDao countryDao = new CountryDaoImpl();
 	
 	@GetMapping("/cities")
-	public String citytList(@RequestParam("countrycode") String countryCode, ModelMap model, HttpSession session) {
-		
-		String continent = (String) session.getAttribute("continent");
+	public String citytList(@RequestParam("countrycode") String countryCode, ModelMap model) {
 		List<City> cityList = cityDao.getCityListByCountryCode(countryCode);
 		model.addAttribute("cityList", cityList);
-		model.addAttribute("continent", continent);
 		return "cities";
 	}
 	
@@ -53,14 +50,14 @@ public class CityController {
 				try {
 					int id = Integer.parseInt(idStr);
 					city.setId(id);
-					cityDao.modifyCity(city);
+					//cityDao.modifyCity(city);
 					message = "city updated";
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			} else {
 
-				cityDao.insertCity(city);
+				//cityDao.insertCity(city);
 				message = "city added";
 			}
 		}
