@@ -30,7 +30,4 @@ public class Country {
 	public void setPopulation(Integer population) {
 		this.population = population;
 	}
-	
-	
-
 }
