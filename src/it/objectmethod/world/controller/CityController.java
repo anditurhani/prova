@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,19 +12,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import it.objectmethod.world.dao.ICityDao;
 import it.objectmethod.world.dao.ICountryDao;
-import it.objectmethod.world.dao.impl.CityDaoImpl;
-import it.objectmethod.world.dao.impl.CountryDaoImpl;
 import it.objectmethod.world.model.City;
 import it.objectmethod.world.model.Country;
 
 @Controller
 public class CityController {
 	
-	private ICityDao cityDao = new CityDaoImpl();
-	private ICountryDao countryDao = new CountryDaoImpl();
+	@Autowired
+	private ICountryDao countryDao;
+	@Autowired
+	private ICityDao cityDao;
 	
 	@GetMapping("/cities")
-	public String citytList(@RequestParam("countrycode") String countryCode, ModelMap model) {
+	public String cityList(@RequestParam("countrycode") String countryCode, ModelMap model) {
 		List<City> cityList = cityDao.getCityListByCountryCode(countryCode);
 		model.addAttribute("cityList", cityList);
 		return "cities";
