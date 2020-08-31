@@ -51,14 +51,14 @@ public class CityController {
 				try {
 					int id = Integer.parseInt(idStr);
 					city.setId(id);
-					//cityDao.modifyCity(city);
+					cityDao.modifyCity(city);
 					message = "city updated";
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			} else {
 
-				//cityDao.insertCity(city);
+				cityDao.insertCity(city);
 				message = "city added";
 			}
 		}
