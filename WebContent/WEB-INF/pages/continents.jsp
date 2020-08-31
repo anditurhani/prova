@@ -12,8 +12,8 @@
     <div style="text-align: right"><a href="http://localhost:8080/world_list/updateForm?id=">insert city</a></div>
 	<ul>
 		<c:forEach var="continent" items="${continentList}">
-			<li><a
-				href="http://localhost:8080/world_list/countries?continent=${continent.name}">${continent.name}</a></li>
+			<li>
+			<a href="http://localhost:8080/world_list/countries?continent=${continent.name}">${continent.name}</a></li>
 		</c:forEach>
 	</ul>
 </body>
