@@ -23,7 +23,7 @@ public class CityDaoImpl extends NamedParameterJdbcDaoSupport implements ICityDa
 	
 	public List<City> searchCities(String searchStr, String countryCode) {
 		List<City> cityList = null;
-		String sql = "SELECT id id, name name, population population, countrycode countrycode FROM city WHERE name = :searchStr: AND ('' = :countryCode OR countrycode = :countryCode)";
+		String sql = "SELECT id id, name name, population population, countrycode countrycode FROM city WHERE name LIKE :searchStr AND ('' = :countryCode OR countrycode = :countryCode)";
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("searchStr", searchStr);
 		params.addValue("countryCode", countryCode);
@@ -42,7 +42,7 @@ public class CityDaoImpl extends NamedParameterJdbcDaoSupport implements ICityDa
 	}
 	
 	public void modifyCity(City city) {
-		String sql = "UPDATE city SET name = :name:, countrycode = :countryCode, population = :population WHERE id = :id";
+		String sql = "UPDATE city SET name = :name, countrycode = :countryCode, population = :population WHERE id = :id";
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("name", city.getName());
 		params.addValue("countryCode", city.getCountrycode());
